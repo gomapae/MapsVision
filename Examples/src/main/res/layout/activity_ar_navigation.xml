@@ -3,9 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <com.mapbox.vision.ar.view.gl.VisionArView
         android:id="@+id/mapbox_ar_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:paddingHorizontal="16dp"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="20dp"
+        android:background="@drawable/selector_start_ar_navigation"
+        android:text="Back"
+        android:gravity="center"
+        android:textColor="#00a75d"
+        android:onClick="back"/>
 </FrameLayout>

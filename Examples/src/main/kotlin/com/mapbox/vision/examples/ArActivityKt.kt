@@ -1,6 +1,8 @@
 package com.mapbox.vision.examples
 
 import android.location.Location
+import android.util.Log
+import android.view.View
 import android.widget.Toast
 import com.mapbox.android.core.location.LocationEngineCallback
 import com.mapbox.android.core.location.LocationEngineProvider
@@ -77,8 +79,10 @@ open class ArActivityKt : BaseActivity(), RouteListener, ProgressChangeListener,
 
     // This dummy points will be used to build route. For real world test this needs to be changed to real values for
     // source and target locations.
-    private val ROUTE_ORIGIN = Point.fromLngLat(27.654285, 53.928057)
-    private val ROUTE_DESTINATION = Point.fromLngLat(27.655637, 53.935712)
+//    24.4867629,54.4033715
+    private var ROUTE_ORIGIN = Point.fromLngLat(24.4867629,54.4033715)
+//    24.488158844051057, 54.380316833657396
+    private var ROUTE_DESTINATION = Point.fromLngLat(24.488158844051057, 54.380316833657396)
 
     protected open fun setArRenderOptions(visionArView: VisionArView) {
         // enable fence rendering
@@ -88,10 +92,22 @@ open class ArActivityKt : BaseActivity(), RouteListener, ProgressChangeListener,
     override fun onPermissionsGranted() {
         startVisionManager()
         startNavigation()
+        Log.e("coofee", "$ROUTE_ORIGIN+$ROUTE_DESTINATION")
     }
 
     override fun initViews() {
         setContentView(R.layout.activity_ar_navigation)
+        try {
+            val startLat = intent.getStringExtra("startLat").toDouble()
+            val startLng = intent.getStringExtra("startLng").toDouble()
+            val endLat = intent.getStringExtra("endLat").toDouble()
+            val endLng = intent.getStringExtra("endLng").toDouble()
+            ROUTE_ORIGIN = Point.fromLngLat(startLng, startLat)
+            ROUTE_DESTINATION = Point.fromLngLat(endLng, endLat)
+        } catch (e: java.lang.Exception) {
+            Toast.makeText(this, "Data format error!!!", Toast.LENGTH_LONG).show()
+            finish()
+        }
     }
 
     override fun onStart() {
@@ -308,5 +324,8 @@ open class ArActivityKt : BaseActivity(), RouteListener, ProgressChangeListener,
         "notification" -> ManeuverType.Notification
         "exit rotary" -> ManeuverType.RoundaboutExit
         else -> ManeuverType.None
+    }
+    fun back(v: View?) {
+        finish()
     }
 }

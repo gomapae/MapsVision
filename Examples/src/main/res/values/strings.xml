@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Vision Examples</string>
+    <string name="app_name">GoMap Vision</string>
     <string name="ext_video_example">External Video Source Example</string>
     <string name="safety_example">Safety Example</string>
     <string name="ar_example">AR Example</string>
@@ -10,4 +10,22 @@
     <string name="usb_video_source_example">Usb Camera Example</string>
     <string name="vision_not_supported_title">Device is not supported</string>
     <string name="vision_not_supported_message">Vision SDK does not support this device yet, check more details at &lt;a href=\"https://docs.mapbox.com/android/vision/overview/#requirements\">docs.mapbox.com&lt;/a></string>
+
+
+    <string name="site_0">W Hotel</string>
+    <string name="site_1">Warner Bros Dropoff</string>
+    <string name="site_2">Warner Bros Pickup</string>
+    <string name="site_3">IKEA</string>
+    <string name="site_4">Yas Mall</string>
+    <string name="site_5">Yas Beach</string>
+    <string name="site_6">Yas Waterworld</string>
+    <string-array name="arr_sites">
+        <item>@string/site_0</item>
+        <item>@string/site_1</item>
+        <item>@string/site_2</item>
+        <item>@string/site_3</item>
+        <item>@string/site_4</item>
+        <item>@string/site_5</item>
+        <item>@string/site_6</item>
+    </string-array>
 </resources>

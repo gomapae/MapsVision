@@ -3,6 +3,7 @@ package com.mapbox.vision.examples
 import android.location.Location
 import android.util.Log
 import android.view.View
+import android.view.WindowManager
 import android.widget.Toast
 import com.mapbox.android.core.location.LocationEngineCallback
 import com.mapbox.android.core.location.LocationEngineProvider
@@ -97,6 +98,7 @@ open class ArActivityKt : BaseActivity(), RouteListener, ProgressChangeListener,
 
     override fun initViews() {
         setContentView(R.layout.activity_ar_navigation)
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         try {
             val startLat = intent.getStringExtra("startLat").toDouble()
             val startLng = intent.getStringExtra("startLng").toDouble()

@@ -88,6 +88,7 @@ open class MainActivity: AppCompatActivity() {
             return
         }
         var intent = Intent(this, ArActivityKt::class.java)
+//        var intent = Intent(this, ArCustomizationActivityKt::class.java)
         intent.putExtra("startLat", startLat?.text.toString())
         intent.putExtra("startLng", startLng?.text.toString())
         intent.putExtra("endLat", endLat?.text.toString())
